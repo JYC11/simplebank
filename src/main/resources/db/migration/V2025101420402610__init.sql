@@ -3,9 +3,9 @@
 CREATE TABLE IF NOT EXISTS accounts
 (
     id                  UUID PRIMARY KEY         DEFAULT gen_random_uuid(),
-    created_at          TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    updated_at          TIMESTAMP WITH TIME ZONE DEFAULT NULL,
-    deleted_at          TIMESTAMP WITH TIME ZONE DEFAULT NULL,
+    created_at          TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
+    updated_at          TIMESTAMPTZ DEFAULT NULL,
+    deleted_at          TIMESTAMPTZ DEFAULT NULL,
     type                VARCHAR(50)        NOT NULL CHECK (
         type IN (
             -- Customer Accounts
@@ -32,7 +32,7 @@ CREATE INDEX IF NOT EXISTS idx_accounts_type ON accounts (type);
 CREATE TABLE IF NOT EXISTS transactions
 (
     id             UUID PRIMARY KEY         DEFAULT gen_random_uuid(),
-    created_at     TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    created_at     TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
     transaction_id UUID           NOT NULL,
     -- Groups related legs (e.g., transfer from A to B)
     account_id     UUID           REFERENCES accounts (id),
@@ -125,7 +125,7 @@ ON CONFLICT (gl_code) DO NOTHING;
 CREATE TABLE IF NOT EXISTS journal_entries
 (
     id             UUID PRIMARY KEY         DEFAULT gen_random_uuid(),
-    created_at     TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    created_at     TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
     transaction_id UUID           NOT NULL,
     -- Links to source event in `transactions`
     gl_code        VARCHAR(10)    NOT NULL REFERENCES chart_of_accounts (gl_code),
@@ -137,7 +137,7 @@ CREATE TABLE IF NOT EXISTS journal_entries
     source         VARCHAR(50)    NOT NULL,
     -- e.g., 'LOAN_REPAYMENT', 'MONTHLY_FEE', 'INTEREST_POSTING'
     -- 🔁 Reconciliation Fields
-    reconciled_at           TIMESTAMP WITH TIME ZONE,
+    reconciled_at           TIMESTAMPTZ,
     reconciled_by           UUID,                    -- Can link to users or services
     reconciliation_source   VARCHAR(50),             -- e.g., "PLAID_CLEARING_RUN"
     reference_number        VARCHAR(64),             -- External trace ID
