@@ -1,6 +1,5 @@
 package org.example.simplebank.common.dataAccess
 
-import org.jooq.Configuration
 import org.jooq.DAO
 import org.jooq.DSLContext
 import org.jooq.UpdatableRecord
@@ -11,7 +10,6 @@ import org.jooq.UpdatableRecord
 // K: Key type
 abstract class AbstractJooqCrudRepository<D : DAO<R, P, K>, R : UpdatableRecord<R>, P : Any, K : Any>(
     open val dslContext: DSLContext,
-    open val configuration: Configuration,
     private val dao: D
 ) : BaseCrudRepository<P, K> {
     // add get with lock?

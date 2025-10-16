@@ -1,3 +1,10 @@
 spring:
   application:
     name: simplebank
+  flyway:
+    enabled: true
+    locations: classpath:/db/migration
+    sql-migration-suffixes: sql
+    baseline-on-migrate: true
+    baseline-version: 0
+    out-of-order: true
