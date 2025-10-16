@@ -5,7 +5,6 @@ import org.example.simplebank.common.dataAccess.LockMode
 import org.example.simplebank.common.dataAccess.emptyIn
 import org.jooq.DSLContext
 import org.jooq.generated.tables.pojos.JTransactions
-import org.jooq.generated.tables.references.ACCOUNTS
 import org.jooq.generated.tables.references.TRANSACTIONS
 import org.springframework.stereotype.Repository
 
