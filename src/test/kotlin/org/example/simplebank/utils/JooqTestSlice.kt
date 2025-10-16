@@ -19,12 +19,9 @@ import org.springframework.test.context.ActiveProfiles
 @ImportAutoConfiguration(
     value = [
         JooqConfig::class,
-        // JOOQ Auto-Configuration
         JooqAutoConfiguration::class,
         FlywayConfig::class,
-        // Flyway Auto-Configuration
         FlywayAutoConfiguration::class,
-        // Test Database Auto-Configuration
         DataSourceAutoConfiguration::class,
         DataSourceTransactionManagerAutoConfiguration::class,
         SqlInitializationAutoConfiguration::class,
@@ -35,5 +32,4 @@ import org.springframework.test.context.ActiveProfiles
 @OverrideAutoConfiguration(enabled = false)
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @ActiveProfiles("test")
-annotation class JooqTestSlice(
-)
+annotation class JooqTestSlice
