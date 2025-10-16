@@ -1,4 +1,4 @@
-package org.example.simplebank.common.utils
+package org.example.simplebank.common.utils.dataStructures
 
 data class PaginationResponse<T>(
     val items: List<T>,

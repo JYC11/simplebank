@@ -1,0 +1,13 @@
+spring:
+  main:
+    banner-mode: off
+  application:
+    name: simplebank
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:common,local}
+    group:
+      local: common, local
+      test: common, test
+      develop: common, develop
+      stage: common, stage
+      production: common, production
