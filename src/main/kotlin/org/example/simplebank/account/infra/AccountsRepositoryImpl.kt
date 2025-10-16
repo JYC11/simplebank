@@ -30,11 +30,8 @@ class AccountsRepositoryImpl(
     override fun findWithLockById(id: UUID, lockMode: LockMode): JAccounts? {
         return when (lockMode) {
             LockMode.PESSIMISTIC_WRITE -> getOneQuery(id).forUpdate()
-                .fetchOneInto(JAccounts::class.java)
-
             LockMode.PESSIMISTIC_READ -> getOneQuery(id).forShare()
-                .fetchOneInto(JAccounts::class.java)
-        }
+        }.fetchOneInto(JAccounts::class.java)
     }
 
     override fun findWithLockByIdOrRaise(id: UUID, lockMode: LockMode): JAccounts {
@@ -48,11 +45,8 @@ class AccountsRepositoryImpl(
     override fun findAllWithLockByIds(ids: Collection<UUID>, lockMode: LockMode): List<JAccounts> {
         return when (lockMode) {
             LockMode.PESSIMISTIC_WRITE -> getAllQuery(ids).forUpdate()
-                .fetchInto(JAccounts::class.java)
-
             LockMode.PESSIMISTIC_READ -> getAllQuery(ids).forShare()
-                .fetchInto(JAccounts::class.java)
-        }
+        }.fetchInto(JAccounts::class.java)
     }
 
     override fun findAllByIds(ids: Collection<UUID>): List<JAccounts> {
