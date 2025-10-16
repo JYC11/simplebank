@@ -26,7 +26,7 @@ class TransactionsRepositoryImpl(
     override fun deleteAll(entities: Collection<JTransactions>) = throw UnsupportedOperationException()
 
     private fun getOneQuery(id: UUID) = dslContext.selectFrom(TRANSACTIONS)
-        .where(ACCOUNTS.ID.eq(id))
+        .where(TRANSACTIONS.ID.eq(id))
 
     override fun findWithLockById(id: UUID, lockMode: LockMode): JTransactions? {
         return when (lockMode) {
@@ -41,7 +41,7 @@ class TransactionsRepositoryImpl(
     }
 
     private fun getAllQuery(ids: Collection<UUID>) = dslContext.selectFrom(TRANSACTIONS)
-        .where(ACCOUNTS.ID.emptyIn(ids))
+        .where(TRANSACTIONS.ID.emptyIn(ids))
 
     override fun findAllWithLockByIds(ids: Collection<UUID>, lockMode: LockMode): List<JTransactions> {
         return when (lockMode) {
