@@ -3,6 +3,8 @@ package org.example.simplebank.common.dataAccess
 interface BaseCrudRepository<P, K> {
     fun getById(id: K): P?
 
+    fun getByIdOrRaise(id: K): P
+
     fun save(entity: P): P
 
     fun update(entity: P): P

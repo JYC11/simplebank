@@ -20,6 +20,10 @@ abstract class AbstractJooqCrudRepository<D : DAO<R, P, K>, R : UpdatableRecord<
         return dao.findById(id)
     }
 
+    override fun getByIdOrRaise(id: K): P {
+        return dao.findById(id) ?: throw NoSuchElementException("Not found for id $id")
+    }
+
     override fun save(entity: P): P {
         dao.insert(entity)
         return entity
