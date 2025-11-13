@@ -98,7 +98,7 @@ tasks {
                     isRecords = true
                     isDaos = true
                 }
-                strategy.name = "org.example.JPrefixGeneratorStrategy"
+                strategy.name = "org.example.CustomGeneratorStrategy"
             }
         }
     }

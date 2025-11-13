@@ -4,7 +4,7 @@ import org.jooq.codegen.DefaultGeneratorStrategy;
 import org.jooq.meta.Definition;
 import org.jooq.meta.TableDefinition;
 
-public class JPrefixGeneratorStrategy extends DefaultGeneratorStrategy {
+public class CustomGeneratorStrategy extends DefaultGeneratorStrategy {
 
     @Override
     public String getJavaClassName(Definition definition, Mode mode) {
