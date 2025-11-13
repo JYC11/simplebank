@@ -3,12 +3,12 @@ package org.example.simplebank.transaction.infra
 import java.util.UUID
 import org.example.simplebank.common.dataAccess.AbstractJooqCrudRepository
 import org.jooq.DSLContext
+import org.jooq.generated.tables.JTransactionsTable
 import org.jooq.generated.tables.daos.JTransactionsDao
-import org.jooq.generated.tables.pojos.JTransactions
+import org.jooq.generated.tables.pojos.JTransactionsPojo
 import org.jooq.generated.tables.records.JTransactionsRecord
 import org.jooq.generated.tables.references.TRANSACTIONS
 import org.springframework.stereotype.Repository
-import org.jooq.generated.tables.JTransactions as JTransactionsTable
 
 @Repository
 class TransactionsJooqCrudRepository(
@@ -17,7 +17,7 @@ class TransactionsJooqCrudRepository(
         JTransactionsDao,
         JTransactionsRecord,
         JTransactionsTable,
-        JTransactions,
+        JTransactionsPojo,
         UUID
         >(
     dslContext = dslContext,

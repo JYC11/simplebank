@@ -46,6 +46,7 @@ dependencies {
     implementation("org.jooq:jooq-kotlin:$jooqVersion")
     implementation("org.jooq:jooq-codegen:$jooqVersion")
 
+    jooqCodegen(project(":jooq-custom"))
     jooqCodegen("org.postgresql:postgresql:$postgresVersion")
     jooqCodegen("org.flywaydb:flyway-core:$flywayVersion")
     jooqCodegen("org.flywaydb:flyway-database-postgresql:$flywayVersion")
@@ -97,7 +98,7 @@ tasks {
                     isRecords = true
                     isDaos = true
                 }
-                strategy.name = "org.jooq.codegen.example.JPrefixGeneratorStrategy"
+                strategy.name = "org.example.JPrefixGeneratorStrategy"
             }
         }
     }
