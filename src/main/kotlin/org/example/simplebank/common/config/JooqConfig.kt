@@ -4,11 +4,11 @@ import javax.sql.DataSource
 import org.jooq.DSLContext
 import org.jooq.SQLDialect
 import org.jooq.conf.ExecuteWithoutWhere
-import org.jooq.Configuration as JooqConfiguration
 import org.jooq.impl.DefaultDSLContext
 import org.springframework.boot.autoconfigure.jooq.DefaultConfigurationCustomizer
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import org.jooq.Configuration as JooqConfiguration
 
 @Configuration
 class JooqConfig {

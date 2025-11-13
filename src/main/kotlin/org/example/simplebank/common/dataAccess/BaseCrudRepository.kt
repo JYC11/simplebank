@@ -1,9 +1,11 @@
 package org.example.simplebank.common.dataAccess
 
 interface BaseCrudRepository<P, K> {
-    fun getById(id: K): P?
+    fun getById(id: K, lockMode: LockMode = LockMode.NONE): P?
 
-    fun getByIdOrRaise(id: K): P
+    fun getByIdOrRaise(id: K, lockMode: LockMode = LockMode.NONE): P
+
+    fun getAllByIdsWithLock(ids: Collection<K>, lockMode: LockMode = LockMode.NONE): List<P>
 
     fun save(entity: P): P
 

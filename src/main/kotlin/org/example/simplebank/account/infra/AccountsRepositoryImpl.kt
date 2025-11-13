@@ -13,8 +13,8 @@ class AccountsRepositoryImpl(
     private val dslContext: DSLContext,
     private val jooqCrudRepository: AccountsJooqCrudRepository
 ) : AccountsRepository {
-    override fun getById(id: UUID) = jooqCrudRepository.getById(id)
-    override fun getByIdOrRaise(id: UUID) = jooqCrudRepository.getByIdOrRaise(id)
+    override fun getById(id: UUID, lockMode: LockMode) = jooqCrudRepository.getById(id)
+    override fun getByIdOrRaise(id: UUID, lockMode: LockMode) = jooqCrudRepository.getByIdOrRaise(id)
     override fun save(entity: JAccounts) = jooqCrudRepository.save(entity)
     override fun update(entity: JAccounts) = jooqCrudRepository.update(entity)
     override fun delete(entity: JAccounts) = jooqCrudRepository.delete(entity)
