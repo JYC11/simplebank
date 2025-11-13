@@ -2,7 +2,7 @@ package org.example.simplebank.account.infra
 
 import java.util.UUID
 import org.example.simplebank.common.dataAccess.BaseCrudRepository
-import org.jooq.generated.tables.pojos.JAccounts
+import org.jooq.generated.tables.pojos.JAccountsPojo
 
 interface AccountsRepository :
-    BaseCrudRepository<JAccounts, UUID>
+    BaseCrudRepository<JAccountsPojo, UUID>

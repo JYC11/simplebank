@@ -2,7 +2,7 @@ package org.example.simplebank.transaction.infra
 
 import java.util.UUID
 import org.example.simplebank.common.dataAccess.BaseCrudRepository
-import org.jooq.generated.tables.pojos.JTransactions
+import org.jooq.generated.tables.pojos.JTransactionsPojo
 
 interface TransactionsRepository :
-    BaseCrudRepository<JTransactions, UUID>
+    BaseCrudRepository<JTransactionsPojo, UUID>
