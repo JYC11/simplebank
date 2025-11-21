@@ -1,7 +1,7 @@
 plugins {
     kotlin("jvm") version "2.2.20"
     kotlin("plugin.spring") version "2.2.20"
-    id("org.springframework.boot") version "3.5.6"
+    id("org.springframework.boot") version "4.0.0"
     id("io.spring.dependency-management") version "1.1.7"
     id("org.flywaydb.flyway") version "11.13.2"
     id("dev.monosoul.jooq-docker") version "7.0.15"
@@ -34,7 +34,7 @@ flyway {
 }
 
 val flywayVersion = "11.13.2"
-val jooqVersion = "3.20.8"
+val jooqVersion = "3.20.9"
 val postgresVersion = "42.7.4"
 val testContainersVersion = "1.21.3"
 
