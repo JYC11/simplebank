@@ -5,7 +5,7 @@ import org.example.simplebank.account.infra.AccountsJooqCrudRepository
 import org.example.simplebank.account.infra.AccountsRepository
 import org.example.simplebank.account.infra.AccountsRepositoryImpl
 import org.example.simplebank.utils.BaseIntegTest
-import org.jooq.generated.tables.pojos.JAccounts
+import org.jooq.generated.tables.pojos.JAccountsPojo
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
@@ -23,7 +23,7 @@ class AccountsRepositoryTest : BaseIntegTest() {
 
     @Test
     fun `should be able to create, get then delete account`() {
-        val account = JAccounts(
+        val account = JAccountsPojo(
             type = "CHECKING",
             accountNumber = "1234567890",
             accountHolderName = "john doe"
